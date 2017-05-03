@@ -17,8 +17,8 @@
 		":body" => $_POST['editContent']
     ]);
 
-	//redirectar tillbaka till indexsidan. 
-	header('Location: ../index.php');
-	
-	
 ?>
+loading...
+<script>
+	window.location = '/php_blog';
+</script>
