@@ -1,14 +1,14 @@
 <?php
+include '../partials/header.php';
 
 $db = new DataBase_blog($pdo);
-$articleList = $db->getAllFrom('pages1');
+$commentList = $db->getAllFrom('comments');
 
 echo "<ul>";
-foreach ($articleList as $row) {
-    ?>    
+foreach ($commentList as $row) {
+?>    
     <div style='border:solid black 1px;'>
-        <h3> <?php echo $row["title"] ?> </h3>
-        <p> <?php echo $row["body"] ?> </p>
+        <h3> <?php echo $row["text"] ?> </h3>
     </div>
     <p> Created: <?php echo $row["created"] ?> </p>
     <form action="functions/delete.php" method="POST">
@@ -19,12 +19,9 @@ foreach ($articleList as $row) {
         <input type="hidden" value="<?php echo $row["id"]?>" name="id">
         <input type="submit" value="Edit">
      </form>
-      <form action="functions/comment.php" method="POST">
-        <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-        <input type="submit" value="Comment">
-     </form>
-    <?php    
+<?php    
 }
 echo "</ul>";
 
+include '../partials/footer.php';
 ?>
