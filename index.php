@@ -1,25 +1,43 @@
 <?php
+
   include 'partials/header.php';
-  include 'db.php';
-  include 'error.php';
-  include 'functions/get.php';
+  // include 'db.php';
+  // include 'error.php';
+  // include 'functions/get.php';
+
+
+  if(isset($_GET['category'])) {
+  $category = mysqli_real_escape_string($db , $_GET['category']);
+  $query = "SELECT * FROM posts WHERE category = '$category'";
+} else {
+$query = "SELECT * FROM posts";
+}
+$posts = $db->query($query);
+
 ?>
 
-<body>
+<div class="blog-header">
+<h1 class="blog-title">NMNBlog</h1>
+</div>
+<?php if($posts->num_rows > 0) {
+while($row = $posts->fetch_assoc()) {
+?>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href="single.php?post=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></h2>
+<p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
 
-<h3>Create new blog post: </h3>
- <form action="functions/post.php" method="POST">
- 	Title:  <br>
-    <input type="text" name="title"><br>
-    Content: <br>
-	<textarea name="content" rows="20" cols="100"> </textarea><br>
-    <input type="submit" value="post">
-  </form>
+<?php $body = $row['body'];
+echo substr($body , 0 , 400) . "...";
+?>
 
-<h1>Previous blog posts: </h1>
+<a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read more</a>
+</div><!-- /.blog-post -->
+<?php } } ?>
+
+</div><!-- /.blog-main -->
 
 
 <?php
-   include 'articles.php';
-	include 'partials/footer.php';
+    //  include 'articles.php';
+	   include 'partials/footer.php';
 ?>
