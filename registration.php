@@ -46,3 +46,6 @@ if (empty($_post)){
 
 <?php
 include 'partials/footer.php';
+
+?>              
+
