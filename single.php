@@ -1,18 +1,21 @@
-<?php include ("partials/header.php");
+<?php 
+
+include ("partials/header.php");
+
+include_once dirname(__FILE__) . '/classes/posts.php'; 
+
+
 
 if(isset($_GET['post'])) {
-  $id = mysqli_real_escape_string($db , $_GET['post']);
-  $query = "SELECT * FROM posts WHERE id = '$id'";
+  $id = $_GET['post'];
+  $pdo = Database::connection();
+  $db = new Posts($pdo);
+  $blogPost = $db->getById('posts', $id);
 }
-
-$posts = $db->query($query);
-
 ?>
 
     <br>
-    <?php if($posts->num_rows > 0) {
-    while($row = $posts->fetch_assoc()) {
-      ?>
+    <?php foreach ($blogPost as $row) { ?>
       <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
       <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
@@ -21,7 +24,7 @@ $posts = $db->query($query);
 
 
     </div><!-- /.blog-post -->
-    <?php } } ?>
+    <?php } ?>
 
           <blockquote>2 Comments</blockquote>
 

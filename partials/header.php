@@ -1,10 +1,13 @@
 <?php
+include 'error.php';
+include 'db.php';
+include_once dirname(__FILE__) . '/../classes/posts.php'; 
 
-include 'partials/config.php';
-include 'partials/db.php';
 
-$query = "SELECT * FROM categories";
-$categories = $db->query($query);
+  $pdo = Database::connection();
+  $db = new Posts($pdo);
+  $categories = $db->getCategories('categories');
+ 
 
 ?>
 
@@ -28,18 +31,22 @@ $categories = $db->query($query);
       <div class="container-fluid">
         <nav class="blog-nav">
 
-          <?php if(isset($_GET['category'])) { ?>
+
+          <?php 
+         // var_dump($_GET['category']);
+
+         // $categories = $db->getOneCategorie('categories', $_GET['category']);
+          if(isset($_GET['category'])) { ?>
             <a class="blog-nav-item" href="index.php">Home</a>
         <?php  } else { ?>
           <a class="blog-nav-item active" href="index.php">Home</a>
           <?php } ?>
 
-          <?php if($categories -> num_rows > 0) {
-            while($row = $categories->fetch_assoc()) {
+          <?php foreach ($categories as $row) {
               if(isset($_GET['category']) && $row['id'] == $_GET['category']) { ?>
                 <a class="blog-nav-item active" href="index.php?category=<?php echo $row['id']; ?>"><?php echo $row['text']; ?></a>
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
-              }}?>
+              }?>
 
         </nav>
       </div>

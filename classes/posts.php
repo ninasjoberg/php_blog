@@ -14,6 +14,18 @@ class Posts {
 		return $statement->fetchAll();
 	}
 
+	public function getCategories($table){
+		$statement = $this->pdo->prepare("SELECT * FROM $table");
+		$statement->execute();
+		return $statement->fetchAll();
+	}
+
+	public function getOneCategorie($table, $text){
+		$statement = $this->pdo->prepare("SELECT * FROM $table WHERE text = $text");
+		$statement->execute();
+		return $statement->fetchAll();
+	}
+
 
 	public function getById($table, $id){
 		$statement = $this->pdo->prepare("SELECT * FROM $table WHERE id = $id");
@@ -67,6 +79,10 @@ class Posts {
 			":id" => $id
 		]);
 	}
+
+
+
+
 }
 
 ?>

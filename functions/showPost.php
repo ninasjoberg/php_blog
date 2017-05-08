@@ -5,7 +5,7 @@
 
   $pdo = Database::connection();
   $db = new Posts($pdo);
-  $article = $db->getById('pages1', $_POST['id']);
+  $article = $db->getById('posts', $_POST['id']);
 ?>
 
 
