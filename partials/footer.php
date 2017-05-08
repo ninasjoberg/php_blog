@@ -1,3 +1,1 @@
-  <script src="js/main.js"></script>
-</body>
-</html>
+<script src="../js/fetch.js"></script>

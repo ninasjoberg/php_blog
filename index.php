@@ -1,8 +1,9 @@
+
 <?php
 
   include 'partials/header.php';
   // include 'db.php';
-  // include 'error.php';
+  include 'error.php';
   // include 'functions/get.php';
 
 
