@@ -6,9 +6,10 @@ $options = [
   PDO::ATTR_EMULATE_PREPARES   => false
 ];
 
+
 $pdo = new PDO(
-  "mysql:host=localhost:8889;dbname=nmnblog;charset=utf8",
-  "root",
-  "root", $options);
-  
-?>
+    "mysql:host=localhost;dbname=nmnBlog;charset=utf8",
+    "root", 
+    "root"
+);
+

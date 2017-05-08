@@ -1,25 +1,79 @@
 <?php
-  include 'partials/header.php';
-  include 'db.php';
+
+  include 'partial/header.php';
+  include 'config.php';
   include 'error.php';
-  include 'functions/get.php';
+  include 'database.php';
+
+?>
+
+<?php
+if (empty($_post)){
 ?>
 
 <body>
+	
+	<form class="" action="index.php" method="post">
+        <div class="form-group">
+             <h2 class="">Sign up</h2>
+        </div>
 
-<h3>Create new blog post: </h3>
- <form action="functions/post.php" method="POST">
- 	Title:  <br>
-    <input type="text" name="title"><br>
-    Content: <br>
-	<textarea name="content" rows="20" cols="100"> </textarea><br>
-    <input type="submit" value="post">
-  </form>
+        <br><br>
 
-<h1>Previous blog posts: </h1>
+	<form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="userName">UserName</label>
+          		<input type="text" name="userName" id="userName" class="form-control">
+       		 </div>
 
+        <br><br>
+
+	<form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="password">Password</label>
+          		<input type="text" name="password" id="password" class="form-control">
+        	</div>
+        
+
+      <br><br>
+
+     <form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="firstName">First Name</label>
+          		<input type="text" name="firstName" id="firstName" class="form-control">
+        	</div>
+
+                    <br><br>
+
+
+      <form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="lastName">Last Name</label>
+          		<input type="text" name="lastName" id="lastName" class="form-control">
+       		</div>
+
+                    <br><br>
+
+       <form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="email">email</label>
+          		<input type="text" name="email" id="email" class="form-control">
+        	</div>
+                    <br><br>
+
+        
+
+
+			<div class="form-group">
+          		<input type="submit" class="btn btn-primary" value="submit">
+       		</div>
 
 <?php
-   include 'articles.php';
-	include 'partials/footer.php';
+}else{
+	print_r($_post);
+}
 ?>
+<?php
+	include 'partial/footer.php';
+?>
+
