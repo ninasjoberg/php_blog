@@ -5,5 +5,5 @@
 
     $pdo = Database::connection();
     $db = new Posts($pdo);
-    $articleList = $db->getAllFrom('pages1');
+    $articleList = $db->getAllFrom('posts');
 ?>

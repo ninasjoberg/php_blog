@@ -44,6 +44,36 @@ if (empty($_post)){
 
                     <br><br>
 
+</div><!-- /.blog-main -->
+
+
+
+      <form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="lastName">Last Name</label>
+          		<input type="text" name="lastName" id="lastName" class="form-control">
+       		</div>
+
+                    <br><br>
+
+       <form class="" action="index.php" method="post">
+        	<div class="form-group">
+          		<label for="email">email</label>
+          		<input type="text" name="email" id="email" class="form-control">
+        	</div>
+                    <br><br>
+
+
+			<div class="form-group">
+          		<input type="submit" class="btn btn-primary" value="submit">
+       		</div>
+
+<?php
+}else{
+	print_r($_post);
+}
+?>					
+
 <?php
 include 'partials/footer.php';
 
