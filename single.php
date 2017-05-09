@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 include ("partials/header.php");
 
-include_once dirname(__FILE__) . '/classes/posts.php'; 
+include_once dirname(__FILE__) . '/classes/posts.php';
 
-
+ssf
 
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
@@ -26,7 +26,7 @@ if(isset($_GET['post'])) {
     </div><!-- /.blog-post -->
     <?php } ?>
 
-          <blockquote>2 Comments</blockquote>
+          <!-- <blockquote>2 Comments</blockquote>
 
           <div class="comment-area">
             <form>
@@ -44,11 +44,41 @@ if(isset($_GET['post'])) {
             <textarea name="comment" rows="10" cols="60" class="form-control"></textarea>
           </div>
           <button type="submit" name="post_comment" class="btn btn-primary">Post Comment</button>
-        </form>
+        </form> -->
 
         <br>
         <br>
         <hr>
+
+        <?php
+            include 'partials/createPostForm.php';
+            include 'functions/showAllPosts.php';
+        ?>
+
+        <h1>Previous blog posts: </h1>
+        <ul>
+            <?php foreach ($articleList as $row) { ?>
+                <div style='border:solid black 1px;'>
+                    <h3> <?php echo $row["title"] ?> </h3>
+                    <p> <?php echo $row["body"] ?> </p>
+                </div>
+                <p> Created: <?php echo $row["created"] ?> </p>
+                <p> Updated: <?php echo $row["updated"] ?> </p>
+                <form action="functions/delete.php" method="POST" id="deletePost">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Delete">
+                </form>
+                <form action="views/editPostView.php" method="POST">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Edit">
+                </form>
+                <form action="views/commentsView.php" method="POST">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Comment">
+                </form>
+            <?php } ?>
+        </ul>
+
 
         <div class="comment">
           <div class="comment-head">
