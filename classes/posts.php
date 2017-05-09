@@ -59,14 +59,15 @@ class Posts {
     	]);
 	}
 
-	public function insertComment($text, $id){
+	public function insertComment($text, $id, $name){
 		$statment = $this->pdo->prepare(
-			"INSERT INTO comments (text, postId) 
-			VALUES (:text, :postId)"
+			"INSERT INTO comments (text, postId, name) 
+			VALUES (:text, :postId, :name)"
 		);
 		$statment->execute([
 			":postId" => $id,
-			":text" => $text
+			":text" => $text,
+			":name" => $name
 		]);
 	}
 
