@@ -47,9 +47,9 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
                 <a class="blog-nav-item active" href="index.php?category=<?php echo $row['id']; ?>"><?php echo $row['text']; ?></a>
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
               }?>
-              <div class="registry-btn">
-              <a href="signIn.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary">Log in</a>
-              <a href="registration.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary">Become a member</a>
+              <div>
+              <a href="signIn.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Log in</a>
+              <a href="registration.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Sign up</a>
             </div>
 
         </nav>

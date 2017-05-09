@@ -4,7 +4,7 @@ include ("partials/header.php");
 
 include_once dirname(__FILE__) . '/classes/posts.php';
 
-ssf
+
 
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
@@ -26,7 +26,7 @@ if(isset($_GET['post'])) {
     </div><!-- /.blog-post -->
     <?php } ?>
 
-          <!-- <blockquote>2 Comments</blockquote>
+          <blockquote>2 Comments</blockquote>
 
           <div class="comment-area">
             <form>
@@ -44,7 +44,7 @@ if(isset($_GET['post'])) {
             <textarea name="comment" rows="10" cols="60" class="form-control"></textarea>
           </div>
           <button type="submit" name="post_comment" class="btn btn-primary">Post Comment</button>
-        </form> -->
+        </form>
 
         <br>
         <br>
@@ -78,6 +78,7 @@ if(isset($_GET['post'])) {
                 </form>
             <?php } ?>
         </ul>
+
 
 
         <div class="comment">
