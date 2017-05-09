@@ -28,6 +28,9 @@
 <div class="blog-header">
 <h1 class="blog-title">NMNBlog</h1>
 </div>
+
+<a href="login.php" class="btn btn-primary">login</a>
+
 <?php 
 foreach ($posts as $row) {
   // if($posts->num_rows > 0) {
@@ -36,6 +39,9 @@ foreach ($posts as $row) {
   <div class="blog-post">
   <h2 class="blog-post-title"><a href="single.php?post=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></h2>
   <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
+
+
+
 
   <?php $body = $row['body'];
   echo substr($body , 0 , 400) . "...";

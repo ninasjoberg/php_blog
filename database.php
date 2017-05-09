@@ -5,13 +5,13 @@ include 'config.php';
 include 'error.php';
 
  $statment = $pdo->prepare(
-        "INSERT INTO users (userName,password,firstName,lastName,email) 
-             VALUES (:userName,:password,:firstName, :lastName, :email)"
+        "INSERT INTO users (username,password,firstName,lastName,email) 
+             VALUES (:username,:password,:firstName, :lastName, :email)"
     );
 
     $statment->execute([
 
-        ":userName"  => $_POST['userName'],
+        ":username"  => $_POST['username'],
         ":password"  => $_POST['password'],
         ":firstName" => $_POST['firstName'],
         ":lastName"  => $_POST['lastName'],

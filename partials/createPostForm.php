@@ -1,4 +1,4 @@
-<?php include 'error.php'; ?>
+<?php include_once dirname(__FILE__) . '/../error.php'; ?>
 
 <h3>Create new blog post: </h3>
 <form action="functions/addPost.php" method="POST" id="post-form">

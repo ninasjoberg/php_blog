@@ -21,8 +21,8 @@ if (empty($_post)){
 
 	<form class="" action="index.php" method="post">
         	<div class="form-group">
-          		<label for="userName">UserName</label>
-          		<input type="text" name="userName" id="userName" class="form-control">
+          		<label for="username">UserName</label>
+          		<input type="text" name="username" id="username" class="form-control">
        		 </div>
 
         <br><br>

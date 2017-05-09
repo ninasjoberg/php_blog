@@ -33,6 +33,11 @@ class Posts {
 		return $statement->fetchAll();
 	}
 
+	public function getUser($username){
+		$statment = $this->pdo->prepare("SELECT * FROM users WHERE username = '$username' ");
+        $statment->execute();
+		return $statment->fetchAll();
+	}	
 
 	public function insertPost($title, $body){
 		$statment = $this->pdo->prepare(

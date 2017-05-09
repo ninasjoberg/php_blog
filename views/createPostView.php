@@ -1,6 +1,9 @@
 <?php
-    include 'partials/createPostForm.php';
-    include 'functions/showAllPosts.php';
+    session_start();
+    echo 'You are logged in as: ' . $_SESSION['username'];
+    include_once dirname(__FILE__) . '/../partials/createPostForm.php';
+    include_once dirname(__FILE__) . '/../functions/showAllPosts.php';
+    include_once dirname(__FILE__) . '/../error.php';
 ?>
 
 <h1>Previous blog posts: </h1>
@@ -19,10 +22,6 @@
         <form action="views/editPostView.php" method="POST">
             <input type="hidden" value="<?php echo $row["id"]?>" name="id">
             <input type="submit" value="Edit">
-        </form>
-        <form action="views/commentsView.php" method="POST">
-            <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-            <input type="submit" value="Comment">
         </form>
     <?php } ?>
 </ul>
