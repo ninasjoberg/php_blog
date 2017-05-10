@@ -1,10 +1,7 @@
-<?php 
-
+<?php
 include ("partials/header.php");
 include 'functions/showAllComments.php';
 include_once dirname(__FILE__) . '/classes/posts.php'; 
-
-
 
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
@@ -14,17 +11,14 @@ if(isset($_GET['post'])) {
 }
 ?>
 
-    <br>
-    <?php foreach ($blogPost as $row) { ?>
-      <div class="blog-post">
+<br>
+<?php foreach ($blogPost as $row) { ?>
+    <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
       <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
-
       <?php echo $row['body'];?>
-
-
-    </div><!-- /.blog-post -->
-    <?php } ?>
+    </div>
+<?php } ?>
 
 
 <h3>Comment</h3>
@@ -41,8 +35,6 @@ if(isset($_GET['post'])) {
 <?php $id = $row['id']; ?>
 
 
-
-
 <h1>Previous comments: </h1>
 <ul>
     <?php foreach ($commentList as $row) { 
@@ -55,12 +47,7 @@ if(isset($_GET['post'])) {
 </ul>
 
 
-<script>
-    <?php
-        include '../js/fetch.js';
-    ?>
-</script>
+<script> <?php include '../js/fetch.js' ?> </script>
 
-
-        <?php include ("partials/footer.php"); ?>
+<?php include ("partials/footer.php"); ?>
 

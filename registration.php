@@ -1,8 +1,7 @@
  <?php
-  include 'partial/header.php';
-  include 'config.php';
+  // include 'partials/header.php';
   include 'error.php';
-  include 'database.php';
+  include 'db.php';
 
 ?>
 
@@ -11,7 +10,7 @@ if (empty($_post)){
 ?>
 
 <body>
-	
+
 	<form class="" action="index.php" method="post">
         <div class="form-group">
              <h2 class="">Sign up</h2>
@@ -32,7 +31,7 @@ if (empty($_post)){
           		<label for="password">Password</label>
           		<input type="text" name="password" id="password" class="form-control">
         	</div>
-        
+
 
       <br><br>
 
@@ -72,10 +71,9 @@ if (empty($_post)){
 }else{
 	print_r($_post);
 }
-?>					
+?>
 
 <?php
 include 'partials/footer.php';
 
-?>              
-
+?>
