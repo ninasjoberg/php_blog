@@ -3,12 +3,15 @@ include ("partials/header.php");
 include 'functions/showAllComments.php';
 include_once dirname(__FILE__) . '/classes/posts.php'; 
 
+
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $blogPost = $db->getById('posts', $id);
 }
+
+var_dump($_GET);
 ?>
 
 <br>
@@ -24,11 +27,11 @@ if(isset($_GET['post'])) {
 <h3>Comment</h3>
 <form action="functions/addComment.php" method="POST" id="comment-form">
   <label>Namn</label>
-  <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name (Optional)">
+  <input type="text" name="name" class="form-control" placeholder="Name (Optional)">
 	<label>Comment</label>
   <textarea name="comment" rows="20" cols="60" class="form-control"></textarea><br>
 	<input type="hidden" value="<?php echo $row['id']?>" name="commentedPostId">
-	<input type="submit" value="post" class="btn btn-primary">
+	<input type="submit" value="post" name='submit' class="btn btn-primary">
 </form>
 <a href="index.php" class="btn btn-primary">Back</a>
 
@@ -36,18 +39,23 @@ if(isset($_GET['post'])) {
 
 
 <h1>Previous comments: </h1>
-<ul>
-    <?php foreach ($commentList as $row) { 
-      if ($row["postId"] == $id) {?>
+<ul id="comment-list">
+  <?php foreach ($commentList as $row) { 
+    if ($row["postId"] == $id) {?>
+      <li>
         <p> <?php echo $row["text"] ?> </p>
         <p> Comment by: <?php echo $row["name"] ?> </p>
         <p> Created: <?php echo $row["created"] ?> </p>
-        <hr>
-    <?php } }?>
+      </li>
+      <hr>
+  <?php } }?>
 </ul>
 
 
-<script> <?php include '../js/fetch.js' ?> </script>
+<script>
+    <?php
+        include 'js/fetch.js';
+    ?>
+</script>
 
-<?php include ("partials/footer.php"); ?>
 
