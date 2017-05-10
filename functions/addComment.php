@@ -8,5 +8,6 @@
 
     $id = $_POST['commentedPostId'];
     $text = $_POST['comment'];
-    $db->insertComment($text, $id);
+	$name = $_POST['name'];
+    $db->insertComment($text, $id, $name);
 ?>

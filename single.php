@@ -1,10 +1,7 @@
 <?php
-
 include ("partials/header.php");
-
-include_once dirname(__FILE__) . '/classes/posts.php';
-
-
+include 'functions/showAllComments.php';
+include_once dirname(__FILE__) . '/classes/posts.php'; 
 
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
@@ -14,91 +11,43 @@ if(isset($_GET['post'])) {
 }
 ?>
 
-    <br>
-    <?php foreach ($blogPost as $row) { ?>
-      <div class="blog-post">
+<br>
+<?php foreach ($blogPost as $row) { ?>
+    <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
       <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
-
       <?php echo $row['body'];?>
+    </div>
+<?php } ?>
 
 
-    </div><!-- /.blog-post -->
-    <?php } ?>
+<h3>Comment</h3>
+<form action="functions/addComment.php" method="POST" id="comment-form">
+  <label>Namn</label>
+  <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name (Optional)">
+	<label>Comment</label>
+  <textarea name="comment" rows="20" cols="60" class="form-control"></textarea><br>
+	<input type="hidden" value="<?php echo $row['id']?>" name="commentedPostId">
+	<input type="submit" value="post" class="btn btn-primary">
+</form>
+<a href="index.php" class="btn btn-primary">Back</a>
 
-          <blockquote>2 Comments</blockquote>
+<?php $id = $row['id']; ?>
 
-          <div class="comment-area">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Namn</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name (Optional)">
-              </div>
 
-          <div class="form-group">
-            <label for="exampleInputEmail1">Hemsida</label>
-            <input type="text" name="website" class="form-control" id="exampleInputEmail1" placeholder="Website (Optional)">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Kommentarer</label>
-            <textarea name="comment" rows="10" cols="60" class="form-control"></textarea>
-          </div>
-          <button type="submit" name="post_comment" class="btn btn-primary">Post Comment</button>
-        </form>
-
-        <br>
-        <br>
+<h1>Previous comments: </h1>
+<ul>
+    <?php foreach ($commentList as $row) { 
+      if ($row["postId"] == $id) {?>
+        <p> <?php echo $row["text"] ?> </p>
+        <p> Comment by: <?php echo $row["name"] ?> </p>
+        <p> Created: <?php echo $row["created"] ?> </p>
         <hr>
-
-        <?php
-            include 'partials/createPostForm.php';
-            include 'functions/showAllPosts.php';
-        ?>
-
-        <h1>Previous blog posts: </h1>
-        <ul>
-            <?php foreach ($articleList as $row) { ?>
-                <div style='border:solid black 1px;'>
-                    <h3> <?php echo $row["title"] ?> </h3>
-                    <p> <?php echo $row["body"] ?> </p>
-                </div>
-                <p> Created: <?php echo $row["created"] ?> </p>
-                <p> Updated: <?php echo $row["updated"] ?> </p>
-                <form action="functions/delete.php" method="POST" id="deletePost">
-                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-                    <input type="submit" value="Delete">
-                </form>
-                <form action="views/editPostView.php" method="POST">
-                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-                    <input type="submit" value="Edit">
-                </form>
-                <form action="views/commentsView.php" method="POST">
-                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-                    <input type="submit" value="Comment">
-                </form>
-            <?php } ?>
-        </ul>
+    <?php } }?>
+</ul>
 
 
+<script> <?php include '../js/fetch.js' ?> </script>
 
-        <div class="comment">
-          <div class="comment-head">
-           <a href="#">Lisa Eriksson</a>
-           <img width="50" height="50" src="img/noim.jpg" class="pull-left">
-         </div>
-          This is a comment by Lisa Eriksson
-        </div>
-        <div class="comment">
-          <div class="comment-head">
-           <a href="#">Nicolas Fuentes</a><button class="btn btn-info btn-xs">Admin</button>
-           <img width="50" height="50" src="img/noim.jpg" class="pull-left">
-         </div>
-          This is a comment by Pelle Nilsson
-        </div>
+<?php include ("partials/footer.php"); ?>
 
-
-          </div>
-
-        </div><!-- /.blog-main -->
-
-        <?php include ("partials/footer.php"); ?>
