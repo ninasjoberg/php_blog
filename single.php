@@ -47,7 +47,7 @@ if(isset($_GET['post'])) {
 </ul>
 
 
-<script> <?php include '../js/fetch.js' ?> </script>
+
 
 <?php include ("partials/footer.php"); ?>
 

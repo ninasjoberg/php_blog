@@ -10,6 +10,8 @@ if(isset($_GET['votes'])) {
   $db = new Posts($pdo);
   $votes = $db->getByPid('votes', $pid);
 }
+  $pdo = Database::connection();
+  $db = new Posts($pdo);
 
 
 $user = $_SESSION['user'] = "admin";
@@ -18,6 +20,8 @@ $pid = $_GET['pid'];
 
 // $query = mysql_query("SELECT * FROM votes WHERE pid='$pid'");
 // $row = mysql_fetch_assoc($query);
+$query = mysql_query("SELECT * FROM votes WHERE pid='$pid'");
+$row = mysql_fetch_assoc($query);
 
 $id = $row['pid'];
 $likes = $row['likes'];
