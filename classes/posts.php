@@ -50,6 +50,20 @@ class Posts {
 		]);
 	}	
 
+	public function insertUser($username , $password, $email){
+		$statment = $this->pdo->prepare(
+			"INSERT INTO users (username, password, email) 
+			VALUES (:username, :password, :email)"
+		);
+		$statment->execute([
+			":username" => $username,
+			":password" => $password,
+			":email" => $email
+		]);
+	}	
+
+
+
 	public function updatePost($title, $body, $id){
 		$statment = $this->pdo->prepare(
 			"UPDATE pages1

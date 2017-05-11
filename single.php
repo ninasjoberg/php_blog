@@ -21,6 +21,7 @@ if(isset($_GET['post'])) {
       <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
 
       <?php echo $row['body'];?>
+      
 
 
     </div><!-- /.blog-post -->
