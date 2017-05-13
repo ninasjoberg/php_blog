@@ -40,8 +40,4 @@
 </ul>
 
 
-<script>
-    <?php
-        include '../js/fetch.js';
-    ?>
-</script>
+<script><?php include '../js/fetch.js'; ?></script>

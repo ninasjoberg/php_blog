@@ -1,10 +1,6 @@
 <?php
-
 include 'classes/posts.php'; 
 include 'db.php';
-
-  //$pdo = Database::connection();
-  //$db = new Posts($pdo);
 ?>
 
 <h2>Registration<h2>

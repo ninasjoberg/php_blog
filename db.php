@@ -2,7 +2,6 @@
 
 class Database{
   public static function connection() {
-
   return new PDO(
     "mysql:host=localhost:8889;dbname=nmnblog;charset=utf8",
     "root",
@@ -13,5 +12,6 @@ class Database{
     ]);
   }
 } 
-
 ?>
+
+

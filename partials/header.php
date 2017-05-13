@@ -1,14 +1,11 @@
 <?php
-include 'error.php';
-include 'db.php';
-include_once dirname(__FILE__) . '/../classes/posts.php'; 
-
+  include 'error.php';
+  include 'db.php';
+  include_once dirname(__FILE__) . '/../classes/posts.php';
 
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $categories = $db->getCategories('categories');
- 
-
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +29,7 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
         <nav class="blog-nav">
 
 
-          <?php 
-         // var_dump($_GET['category']);
-
-         // $categories = $db->getOneCategorie('categories', $_GET['category']);
+        <?php
           if(isset($_GET['category'])) { ?>
             <a class="blog-nav-item" href="index.php">Home</a>
         <?php  } else { ?>
@@ -47,6 +41,10 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
                 <a class="blog-nav-item active" href="index.php?category=<?php echo $row['id']; ?>"><?php echo $row['text']; ?></a>
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
               }?>
+              <div>
+              <a href="signIn.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Log in</a>
+              <a href="registration.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Sign up</a>
+            </div>
 
         </nav>
       </div>

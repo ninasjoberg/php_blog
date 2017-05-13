@@ -1,10 +1,18 @@
 <?php
     session_start();
     echo 'You are logged in as: ' . $_SESSION['username'];
-    include_once dirname(__FILE__) . '/../partials/createPostForm.php';
     include_once dirname(__FILE__) . '/../functions/showAllPosts.php';
     include_once dirname(__FILE__) . '/../error.php';
 ?>
+
+<h3>Create new blog post: </h3>
+<form action="../functions/addPost.php" method="POST" id="post-form">
+ 	  Title:  <br>
+    <input type="text" name="title"><br>
+    Content: <br>
+	  <textarea name="body" rows="20" cols="100"> </textarea><br>
+    <input type="submit" value="post">
+</form>
 
 
 <h1>Previous blog posts: </h1>
@@ -30,4 +38,4 @@
     <?php } ?>
 </ul>
 
-
+<script><?php include '../js/fetch.js'; ?></script>

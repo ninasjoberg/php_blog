@@ -1,6 +1,7 @@
+
 function request(url, options, callback) {
     return fetch(url, options)
-        .then(data => data.text())
+        .then(data => data.json())
         .then(callback);
 }
 
@@ -9,10 +10,15 @@ let commentForm = document.getElementById('comment-form');
 if(commentForm){
     commentForm.addEventListener('submit', function (event) {
         event.preventDefault(); //Prevent form from submitting
-        request('../functions/addComment.php', { //Do post request to php
+        request('functions/addComment.php', { //Do post request to php
             method: 'POST',
             body: new FormData(this) //format input-fields
-        },() => location.reload())   
+        },(data) => {
+            const comList = document.getElementById('comment-list');
+            const newComment =  renderComment(data);
+            comList.insertBefore(newComment, comList.firstChild);
+            commentForm .reset();
+        })   
     });
 }
 
@@ -23,7 +29,9 @@ if(postForm){
         request('functions/addPost.php', { //Do post request to php
             method: 'POST',
             body: new FormData(this) //format input-fields
-        },() => location.reload())
+        },(data) => {
+            
+        })
     });
 }
 
@@ -56,6 +64,24 @@ if(back){
     function redirect(event) {
         window.location = '../index.php'
     }
+}
+
+
+function renderComment(commentData) {
+    const li = document.createElement('li');
+    li.appendChild(createPtag(commentData.text));
+    li.appendChild(createPtag(commentData.name));
+    li.appendChild(createPtag(commentData.created));
+    const hr = document.createElement('hr');
+    li.appendChild(hr);
+    return li;
+}
+
+function createPtag(text){
+     const pTag = document.createElement('p');
+     const textNode = document.createTextNode(text);
+     pTag.appendChild(textNode);
+     return pTag;
 }
 
 

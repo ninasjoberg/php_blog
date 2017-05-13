@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    echo 'hej';
-
     include '../db.php';
 	include '../error.php';
 	include '../classes/posts.php';
