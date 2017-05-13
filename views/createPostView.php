@@ -6,15 +6,19 @@
     include_once dirname(__FILE__) . '/../error.php';
 ?>
 
+
 <h1>Previous blog posts: </h1>
 <ul>
     <?php foreach ($articleList as $row) { ?> 
-        <div style='border:solid black 1px;'>
-            <h3> <?php echo $row["title"] ?> </h3>
+        <div class="blog-post">
+            <h2 class="blog-post-title"><?php echo $row["title"] ?></h2>
             <p> <?php echo $row["body"] ?> </p>
         </div>
-        <p> Created: <?php echo $row["created"] ?> </p>
-        <p> Updated: <?php echo $row["updated"] ?> </p>
+        <div class="blog-post-meta">
+            <p> Created: <?php echo $row["created"] ?> </p>
+            <p> Updated: <?php echo $row["updated"] ?> </p>
+            <p> Posted by: <?php echo $row["author"] ?> </p>
+        </div>
         <form action="functions/delete.php" method="POST" id="deletePost">
             <input type="hidden" value="<?php echo $row["id"]?>" name="id">
             <input type="submit" value="Delete">

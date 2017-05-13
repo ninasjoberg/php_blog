@@ -18,7 +18,10 @@ if(isset($_GET['post'])) {
     <?php foreach ($blogPost as $row) { ?>
       <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
-      <p class="blog-post-meta"><?php echo $row['date']; ?> by <a href="#"><?php echo $row['author']; ?></a></p>
+      <p class="blog-post-meta"><?php echo $row['date']; ?> by 
+        <a href="#"><?php echo $row['author']; ?></a>
+      </p>
+      <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?></p>
 
       <?php echo $row['body'];?>
       

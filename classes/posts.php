@@ -39,14 +39,15 @@ class Posts {
 		return $statment->fetchAll();
 	}	
 
-	public function insertPost($title, $body){
+	public function insertPost($title, $body, $author){
 		$statment = $this->pdo->prepare(
-			"INSERT INTO pages1 (title, body) 
-			VALUES (:title, :body)"
+			"INSERT INTO posts (title, body, author) 
+			VALUES (:title, :body, :author)"
 		);
 		$statment->execute([
 			":title" => $title,
-			":body" => $body
+			":body" => $body,
+			":author" => $author 
 		]);
 	}	
 
@@ -61,8 +62,6 @@ class Posts {
 			":email" => $email
 		]);
 	}	
-
-
 
 	public function updatePost($title, $body, $id){
 		$statment = $this->pdo->prepare(

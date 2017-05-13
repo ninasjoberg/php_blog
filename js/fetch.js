@@ -49,7 +49,6 @@ if(deletePostForm){
     });
 }
 
-
 const back = document.getElementById('back');
 if(back){
     back.addEventListener('click', redirect);

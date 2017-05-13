@@ -1,4 +1,8 @@
 <?php
+    session_start();
+
+    echo 'hej';
+
     include '../db.php';
 	include '../error.php';
 	include '../classes/posts.php';
@@ -8,5 +12,6 @@
 
     $title = $_POST['title'];
     $body = $_POST['body'];
-    $db->insertPost($title, $body);
+    $author = $_SESSION['username'];
+    $db->insertPost($title, $body, $author);
 ?>
