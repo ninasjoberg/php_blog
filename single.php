@@ -11,7 +11,6 @@ if(isset($_GET['post'])) {
   $blogPost = $db->getById('posts', $id);
 }
 
-var_dump($_GET);
 ?>
 
 <br>
@@ -52,10 +51,6 @@ var_dump($_GET);
 </ul>
 
 
-<script>
-    <?php
-        include 'js/fetch.js';
-    ?>
-</script>
+<script><?php include 'js/fetch.js'; ?></script>
 
 

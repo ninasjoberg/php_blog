@@ -1,14 +1,11 @@
 
 <?php
-
   include 'partials/header.php';
   include 'error.php';
 
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $posts = $db->getAllFrom('posts');
-
-
 ?>
 
 <div class="blog-header">

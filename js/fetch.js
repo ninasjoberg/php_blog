@@ -17,6 +17,7 @@ if(commentForm){
             const comList = document.getElementById('comment-list');
             const newComment =  renderComment(data);
             comList.insertBefore(newComment, comList.firstChild);
+            commentForm .reset();
         })   
     });
 }
@@ -64,11 +65,6 @@ if(back){
     }
 }
 
-const com = {
-    text: 'hej hej',
-    name: 'nina',
-    created: new Date(),
-}
 
 function renderComment(commentData) {
     const li = document.createElement('li');

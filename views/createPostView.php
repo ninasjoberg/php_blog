@@ -27,4 +27,4 @@
     <?php } ?>
 </ul>
 
-
+<script><?php include '../js/fetch.js'; ?></script>
