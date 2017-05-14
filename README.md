@@ -4,8 +4,8 @@ Nina Sjöberg, Nicolas, Maruf
 Class: CMS, PHP and MySQL 
 Nackademin ht 16 - vt17
 
+Link to repo: https://github.com/ninasjoberg/php_blog
 
-Link to repo: https://github.com/ninasjoberg/Open_api
 
 ## Task:
 
