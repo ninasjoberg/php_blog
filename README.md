@@ -1,6 +1,7 @@
 # php_blog
 
 Nina Sjöberg, Nicolas, Maruf
+
 Class: CMS, PHP and MySQL 
 Nackademin ht 16 - vt17
 
@@ -10,7 +11,7 @@ Link to repo: https://github.com/ninasjoberg/php_blog
 ## Task:
 
 Create a blog or blog-like application written in PHP and MySQL that works as a smaller CMS where you can add, edit and delete content. 
-You should also be able to vote or like the content of your application. Log in and log out with different users who have different roles.
+You should also be able to vote or like the content of your application and log in and log out with different users who have different roles.
 
 
 ## Languages and techniques:
@@ -30,6 +31,7 @@ Maruf:
 
 Nicolas:
 - firstpage view
+- single blog-post view
 - likes
 - implement Bootsrap 
 
