@@ -55,4 +55,3 @@ if(isset($_GET['post'])) {
 
 <script><?php include 'js/fetch.js'; ?></script>
 
-

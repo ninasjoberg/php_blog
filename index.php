@@ -3,6 +3,7 @@
   include 'partials/header.php';
   include 'error.php';
 
+
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $posts = $db->getAllFrom('posts');
@@ -12,7 +13,9 @@
   <h1 class="blog-title">NMNBlog</h1>
 </div>
 
-<a href="login.php" class="btn btn-primary">login</a>
+
+<a href="login.php?>" class="btn btn-secondary pull-right">Log in</a>
+
 
 <?php foreach ($posts as $row) { ?>
   <div class="blog-post">
@@ -28,8 +31,8 @@
     ?>  
 
     <a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read more</a>
+
   </div>
 
 <?php } ?>
-
 
