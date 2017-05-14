@@ -1,14 +1,11 @@
 <?php
-include 'error.php';
-include 'db.php';
-include_once dirname(__FILE__) . '/../classes/posts.php';
-
+  include 'error.php';
+  include 'db.php';
+  include_once dirname(__FILE__) . '/../classes/posts.php';
 
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $categories = $db->getCategories('categories');
-
-
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +29,7 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
         <nav class="blog-nav">
 
 
-          <?php
-         // var_dump($_GET['category']);
-
-         // $categories = $db->getOneCategorie('categories', $_GET['category']);
+        <?php
           if(isset($_GET['category'])) { ?>
             <a class="blog-nav-item" href="index.php">Home</a>
         <?php  } else { ?>
