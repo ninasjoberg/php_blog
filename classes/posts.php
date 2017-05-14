@@ -39,6 +39,12 @@ class Posts {
 		return $statment->fetchAll();
 	}	
 
+		public function deletePost($id){
+		$statment = $this->pdo->prepare( "DELETE FROM posts WHERE id = $id");
+		$statment->execute();
+	}
+
+
 	public function insertPost($title, $body, $author){
 		$statment = $this->pdo->prepare(
 			"INSERT INTO posts (title, body, author) 
@@ -49,6 +55,7 @@ class Posts {
 			":body" => $body,
 			":author" => $author 
 		]);
+		return $this->pdo->lastInsertId(); 
 	}	
 
 	public function insertUser($username , $password, $email){
@@ -65,7 +72,7 @@ class Posts {
 
 	public function updatePost($title, $body, $id){
 		$statment = $this->pdo->prepare(
-			"UPDATE pages1
+			"UPDATE posts
 			SET title=:title, body=:body, updated=:updated
 			WHERE id=:id "
 		);
@@ -88,19 +95,6 @@ class Posts {
 			":name" => $name
 		]);
 	}
-
-	public function deletePost($id){
-		$statment = $this->pdo->prepare(
-		"DELETE FROM pages1 
-		WHERE id=:id"
-		);
-		$statment->execute([
-			":id" => $id
-		]);
-	}
-
-
-
 
 }
 

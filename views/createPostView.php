@@ -16,25 +16,27 @@
 
 
 <h1>Previous blog posts: </h1>
-<ul>
+<ul id="blogPost-list">
     <?php foreach ($articleList as $row) { ?> 
-        <div class="blog-post">
-            <h2 class="blog-post-title"><?php echo $row["title"] ?></h2>
-            <p> <?php echo $row["body"] ?> </p>
-        </div>
-        <div class="blog-post-meta">
-            <p> Created: <?php echo $row["created"] ?> </p>
-            <p> Updated: <?php echo $row["updated"] ?> </p>
-            <p> Posted by: <?php echo $row["author"] ?> </p>
-        </div>
-        <form action="functions/delete.php" method="POST" id="deletePost">
-            <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-            <input type="submit" value="Delete">
-        </form>
-        <form action="views/editPostView.php" method="POST">
-            <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-            <input type="submit" value="Edit">
-        </form>
+        <li id="<?php echo $row["id"]?>">
+            <div class="blog-post">
+                <h2 class="blog-post-title"><?php echo $row["title"] ?></h2>
+                <p> <?php echo $row["body"] ?> </p>
+            </div>
+            <div class="blog-post-meta">
+                <p> Created: <?php echo $row["created"] ?> </p>
+                <p> Updated: <?php echo $row["updated"] ?> </p>
+                <p> Posted by: <?php echo $row["author"] ?> </p>
+            </div>
+            <form action="functions/delete.php" method="POST" class="deletePost">
+                <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                <input type="submit" value="Delete">
+            </form>
+            <form action="editPostView.php" method="POST" class="editPost">
+                <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                <input type="submit" value="Edit">
+            </form>
+         </li>   
     <?php } ?>
 </ul>
 

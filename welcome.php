@@ -7,3 +7,8 @@
 
 <a href="views/createPostView.php" class="btn btn-primary">Create Post</a>
  
+
+
+<?php 
+	include 'reg.php';
+?>

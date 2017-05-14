@@ -8,4 +8,7 @@
 
 	$id = $_POST['id'];
     $db->deletePost($id);
+	
+	$response = json_encode(array('status' => 200, 'id' => $id));
+	echo $response;
 ?>

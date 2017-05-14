@@ -3,7 +3,9 @@ include 'classes/posts.php';
 include 'db.php';
 ?>
 
-<h2>Registration<h2>
+
+
+<h4>or Register a new user<h4>
 
 <form action="functions/addUser.php" method="post">
     <label>Username  :</label>
@@ -12,7 +14,7 @@ include 'db.php';
     <input type="password" name="password"><br>
      <label>email  :</label>
     <input type="email" name="email"><br>
-    <input type="submit" name='submit' value="log in">
+    <input type="submit" name='submit' value="add to db">
 </form>
 
 
