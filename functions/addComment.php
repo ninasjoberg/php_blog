@@ -16,8 +16,7 @@
 	}
 
 	if($text == ''){
-		$errorMessage .= 'You must enter a comment. ';
-		$response = json_encode(array('status' => 400, 'message' => $errorMessage));
+ 		$response = json_encode(array('status' => 400, 'message' => $errorMessage));
 	}
 
 	if($errorMessage == ''){
