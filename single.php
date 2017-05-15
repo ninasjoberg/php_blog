@@ -22,6 +22,11 @@ if(isset($_GET['post'])) {
       <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?></p>
       <?php echo $row['body'];?>
     </div>
+    <form action="functions/addLike.php" method="POST">
+        <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+        <input type="submit" value="Like" class="btn btn-primary">
+        <p> 
+    </form>
   <?php } ?>
 
 

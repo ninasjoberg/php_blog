@@ -39,9 +39,19 @@ class Posts {
 		return $statment->fetchAll();
 	}	
 
-		public function deletePost($id){
+	public function deletePost($id){
 		$statment = $this->pdo->prepare( "DELETE FROM posts WHERE id = $id");
 		$statment->execute();
+	}
+
+	public function insertLike($id){
+		$statment = $this->pdo->prepare(
+			"INSERT INTO votes (pid) 
+			VALUES (:pid)"
+		);
+		$statment->execute([
+			":pid" => $id,
+		]);
 	}
 
 
