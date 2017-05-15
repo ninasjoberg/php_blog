@@ -1,6 +1,6 @@
 <?php
-    include_once 'db.php';
-    include 'error.php';
+    include_once dirname(__FILE__) . '/../db.php';
+    include_once dirname(__FILE__) . '/../error.php';
     include_once dirname(__FILE__) . '/../classes/posts.php'; 
 
     $pdo = Database::connection();

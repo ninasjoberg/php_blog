@@ -14,8 +14,4 @@
 
 <button id="back">Go back</button>
 
-<script>
-    <?php
-        include '../js/fetch.js';
-    ?>
-</script>
+<script><?php include '../js/fetch.js'; ?></script>

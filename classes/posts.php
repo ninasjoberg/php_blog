@@ -33,21 +33,56 @@ class Posts {
 		return $statement->fetchAll();
 	}
 
+	public function getUser($username){
+		$statment = $this->pdo->prepare("SELECT * FROM users WHERE username = '$username' ");
+        $statment->execute();
+		return $statment->fetchAll();
+	}	
 
-	public function insertPost($title, $body){
+	public function deletePost($id){
+		$statment = $this->pdo->prepare( "DELETE FROM posts WHERE id = $id");
+		$statment->execute();
+	}
+
+	public function insertLike($id){
 		$statment = $this->pdo->prepare(
-			"INSERT INTO pages1 (title, body) 
-			VALUES (:title, :body)"
+			"INSERT INTO votes (pid) 
+			VALUES (:pid)"
+		);
+		$statment->execute([
+			":pid" => $id,
+		]);
+	}
+
+
+	public function insertPost($title, $body, $author){
+		$statment = $this->pdo->prepare(
+			"INSERT INTO posts (title, body, author) 
+			VALUES (:title, :body, :author)"
 		);
 		$statment->execute([
 			":title" => $title,
-			":body" => $body
+			":body" => $body,
+			":author" => $author 
+		]);
+		return $this->pdo->lastInsertId(); 
+	}	
+
+	public function insertUser($username , $password, $email){
+		$statment = $this->pdo->prepare(
+			"INSERT INTO users (username, password, email) 
+			VALUES (:username, :password, :email)"
+		);
+		$statment->execute([
+			":username" => $username,
+			":password" => $password,
+			":email" => $email
 		]);
 	}	
 
 	public function updatePost($title, $body, $id){
 		$statment = $this->pdo->prepare(
-			"UPDATE pages1
+			"UPDATE posts
 			SET title=:title, body=:body, updated=:updated
 			WHERE id=:id "
 		);
@@ -70,19 +105,6 @@ class Posts {
 			":name" => $name
 		]);
 	}
-
-	public function deletePost($id){
-		$statment = $this->pdo->prepare(
-		"DELETE FROM pages1 
-		WHERE id=:id"
-		);
-		$statment->execute([
-			":id" => $id
-		]);
-	}
-
-
-
 
 }
 
