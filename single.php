@@ -1,7 +1,7 @@
 <?php
 include ("partials/header.php");
 include 'functions/showAllComments.php';
-include_once dirname(__FILE__) . '/classes/posts.php'; 
+include_once dirname(__FILE__) . '/classes/posts.php';
 
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
@@ -28,20 +28,20 @@ if(isset($_GET['post'])) {
 	<label>Comment</label>
   <textarea name="comment" rows="20" cols="60" class="form-control"></textarea><br>
 	<input type="hidden" value="<?php echo $row['id']?>" name="commentedPostId">
-	<input type="submit" value="post" class="btn btn-primary">
-</form>
-<a href="index.php" class="btn btn-primary">Back</a>
+	<input type="submit" value="post" class="btn btn-default pull-left">
+<a href="index.php" class="btn btn-default pull-left">Back</a>
 
 <?php $id = $row['id']; ?>
+</form> <br><br><br>
 
 
 <h1>Previous comments: </h1>
 <ul>
-    <?php foreach ($commentList as $row) { 
+    <?php foreach ($commentList as $row) {
       if ($row["postId"] == $id) {?>
         <p> <?php echo $row["text"] ?> </p>
         <p> Comment by: <?php echo $row["name"] ?> </p>
-        <p> Created: <?php echo $row["created"] ?> </p>
+        <p class="comment-text"> Created: <?php echo $row["created"] ?> </p>
         <hr>
     <?php } }?>
 </ul>
@@ -50,4 +50,3 @@ if(isset($_GET['post'])) {
 
 
 <?php include ("partials/footer.php"); ?>
-

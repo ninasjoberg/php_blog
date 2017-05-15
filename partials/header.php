@@ -1,6 +1,7 @@
 <?php
 include 'error.php';
 include 'db.php';
+
 include_once dirname(__FILE__) . '/../classes/posts.php';
 
 
@@ -20,9 +21,8 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
     <title>nmnBlog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <link href="css/blog.css" rel="stylesheet">
+     <link href="css/bootstrap.css" rel="stylesheet">
+     <link href="css/blog.css" rel="stylesheet">
 
   </head>
 
@@ -48,8 +48,8 @@ include_once dirname(__FILE__) . '/../classes/posts.php';
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
               }?>
               <div>
-              <a href="signIn.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Log in</a>
-              <a href="registration.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Sign up</a>
+              <a href="login.php?post=<?php echo $row['id'] ?>" class="btn btn-default pull-right" id="id01" >Log in</a>
+              <a href="login.php?post=<?php echo $row['id'] ?>" class="btn btn-default pull-right">Sign up</a>
             </div>
 
         </nav>

@@ -9,7 +9,6 @@
   $db = new Posts($pdo);
   $posts = $db->getAllFrom('posts');
 
-
 ?>
 
 <div class="blog-header">
