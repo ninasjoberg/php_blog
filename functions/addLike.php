@@ -12,4 +12,4 @@
 
 ?>
 
-<script>  window.location = '/php_blog/single.php?post=48' </script>
+<script>  window.location = '/php_blog/single.php' </script>

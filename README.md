@@ -1,6 +1,6 @@
 # php_blog
 
-Nina Sjöberg, Nicolas, Maruf
+Nina Sjöberg, Nicolas Fuentes, Maruf Khan
 
 Class: CMS, PHP and MySQL 
 Nackademin ht 16 - vt17
@@ -43,7 +43,9 @@ Nina:
 
 
 ## Suggestions for future functionality / improvements:
-- 
-- 
+- allow the users to include images and other media to their blogposts
+- allow admin to delete comments (if they are inappropriate)
+- allow not logged in visitors to like a blog post
+- add categories and search for category 
 
 

@@ -9,6 +9,7 @@ if(isset($_GET['post'])) {
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $blogPost = $db->getById('posts', $id);
+
 }
 ?>
 
@@ -25,8 +26,9 @@ if(isset($_GET['post'])) {
     <form action="functions/addLike.php" method="POST">
         <input type="hidden" value="<?php echo $row["id"]?>" name="id">
         <input type="submit" value="Like" class="btn btn-primary">
-        <p> 
+        <?php totalLikes($row['id']);?>
     </form>
+
   <?php } ?>
 
 
