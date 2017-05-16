@@ -1,12 +1,12 @@
 <?php
 	include '../db.php';
 	include '../error.php';
-	include '../classes/posts.php';
+	include '../classes/likes.php';
 
 	$id = $_POST['id'];
 
     $pdo = Database::connection();
-    $db = new Posts($pdo);
+    $db = new Likes($pdo);
 
     $db->insertLike($id);
 

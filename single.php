@@ -1,14 +1,17 @@
 <?php
 include ("partials/header.php");
 include 'functions/showAllComments.php';
+include 'functions/showAllLikes.php';
 include_once dirname(__FILE__) . '/classes/posts.php';
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $blogPost = $db->getById('posts', $id);
+
 }
 ?>
+
 
 <br>
 <?php foreach ($blogPost as $row) { ?>
@@ -23,7 +26,8 @@ if(isset($_GET['post'])) {
     <form action="functions/addLike.php" method="POST">
         <input type="hidden" value="<?php echo $row["id"]?>" name="id">
         <input type="submit" value="Like" class="btn btn-primary">
-        <p>
+        <?php totalLikes($row['id']);
+         ?>
     </form>
   <?php } ?>
 
