@@ -28,14 +28,21 @@
                 <p> Updated: <?php echo $row["updated"] ?> </p>
                 <p> Posted by: <?php echo $row["author"] ?> </p>
             </div>
-            <form action="functions/delete.php" method="POST" class="deletePost">
-                <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-                <input type="submit" value="Delete">
-            </form>
-            <form action="editPostView.php" method="POST" class="editPost">
-                <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-                <input type="submit" value="Edit">
-            </form>
+            <?php if($_SESSION['username'] == "admin"){ ?>
+                <form action="functions/delete.php" method="POST" class="deletePost">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Delete">
+                </form>
+                <form action="editPostView.php" method="POST" class="editPost">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Edit">
+                </form>
+            <?php  }else if($_SESSION['username'] == $row['author']){ ?>
+                <form action="editPostView.php" method="POST" class="editPost">
+                    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+                    <input type="submit" value="Edit">
+                </form>
+          <?php  } ?>
          </li>   
     <?php } ?>
 </ul>

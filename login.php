@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-include 'classes/posts.php'; 
+include 'classes/users.php'; 
 include 'db.php';
 
   $pdo = Database::connection();
-  $db = new Posts($pdo);
-  //$posts = $db->getAllFrom('posts');
+  $db = new Users($pdo);
 ?>
 
 <h2>Login<h2>
@@ -36,7 +35,6 @@ if(isset($_POST['submit'])){
 	
 	if($errMsg == ''){
 		$results = $db->getUser($username);
-		//var_dump($results[0]['password']);
 		if(count($results) > 0 && $password == $results[0]['password']){
 			session_start();
 			echo $results[0]['username'];
