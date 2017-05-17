@@ -1,10 +1,10 @@
 <?php
 	include '../db.php';
 	include '../error.php';
-	include '../classes/posts.php';
+	include '../classes/users.php';
 
 	$pdo = Database::connection();
-	$db = new Posts($pdo);
+	$db = new Users($pdo);
 
     $username = $_POST['username'];
     $password = $_POST['password'];

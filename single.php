@@ -2,7 +2,9 @@
 include ("partials/header.php");
 include 'functions/showAllComments.php';
 include 'functions/showAllLikes.php';
-include_once dirname(__FILE__) . '/classes/posts.php';
+include_once dirname(__FILE__) . '/classes/posts.php'; 
+
+
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
   $pdo = Database::connection();
@@ -23,13 +25,17 @@ if(isset($_GET['post'])) {
       <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?></p>
       <?php echo $row['body'];?>
     </div>
-    <form action="functions/addLike.php" method="POST">
+    <form action="functions/addLike.php" method="POST" id="like-form">
         <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-        <input type="submit" value="Like" class="btn btn-primary">
-        <?php totalLikes($row['id']);
-         ?>
+        <input type="submit" value="Like" name="like" class="btn btn-primary">
     </form>
-  <?php } ?>
+    <?php } ?>
+
+<h4>Number of likes: <?php if($likes != array()){
+    echo $likes[0]['likes']; 
+    }else{echo 0; }?>  
+</h4>
+<br>
 
 
 <h3>Comment</h3>

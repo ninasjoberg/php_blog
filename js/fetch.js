@@ -75,7 +75,8 @@ if(editPostForm){
         event.preventDefault(); //Prevent form from submitting
         request('../functions/updatePost.php', { //Do post request to php
             method: 'POST',
-            body: new FormData(this) //format input-fields
+            body: new FormData(this), //format input-fields
+            credentials: 'include',
         },() =>  window.location = '../views/createPostView.php')
     });
 }
@@ -88,6 +89,20 @@ if(back){
     function redirect(event) {
         window.location = '../views/createPostView.php'
     }
+}
+
+let likeForm = document.getElementById('like-form');
+if(likeForm){
+    likeForm.addEventListener('submit', function (event) {
+        event.preventDefault(); //Prevent form from submitting
+        request('functions/addLike.php', { //Do post request to php
+            method: 'POST',
+            body: new FormData(this), //format input-fields
+            credentials: 'include', //to access session from php (send session cookie with fetch)
+        },() =>  { //callback
+            location.reload();
+        })
+    });
 }
 
 
