@@ -1,20 +1,15 @@
 <?php
-include 'classes/posts.php'; 
-include 'db.php';
+
+include 'partials/header.php';
 ?>
 
 
-
-<h4>or Register a new user<h4>
-
-<form action="functions/addUser.php" method="post">
-    <label>Username  :</label>
-    <input type="text" name="username"><br>
-    <label>Password  :</label>
-    <input type="password" name="password"><br>
-     <label>email  :</label>
-    <input type="email" name="email"><br>
-    <input type="submit" name='submit' value="add to db">
+<div class="wrapper">
+<form class="form-signin" action="functions/addUser.php" method="post">
+  <h2 class="form-signin-heading">Register a new user<h2>
+    <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
+    <input type="text" class="form-control" name="password" placeholder="Password" required=""/>
+    <input type="email" class="form-control" name="email" placeholder="Email" required="" autofocus=""><br>
+    <input type="submit" name='submit' value="Add user" class="btn btn-lg btn-primary btn-block">
 </form>
-
-
+</div>
