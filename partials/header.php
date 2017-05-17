@@ -8,6 +8,7 @@
   $categories = $db->getCategories('categories');
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,8 +27,8 @@
   <body>
     <div class="blog-masthead">
       <div class="container-fluid">
+        <div class="text-center">
         <nav class="blog-nav">
-
 
         <?php
           if(isset($_GET['category'])) { ?>
@@ -42,14 +43,13 @@
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
               }?>
               <div>
-              <a href="signIn.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Log in</a>
-              <a href="registration.php?post=<?php echo $row['id'] ?>" class="btn btn-secondary pull-right">Sign up</a>
-            </div>
+                <a href="loginForm.php?" class="btn btn-default pull-right">Log in</a>
 
-        </nav>
+                <a href="welcome.php?>" class="btn btn-default pull-right">Register</a>
+
+              </div>
+            </nav>
+        </div>
       </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 blog-main">
+  </div>
+</body>

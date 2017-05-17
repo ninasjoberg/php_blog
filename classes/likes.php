@@ -1,4 +1,5 @@
 <?php
+
 	class Likes{
 		
 		private $pdo;
@@ -41,3 +42,4 @@
 		}
 	}
 ?>
+

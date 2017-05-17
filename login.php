@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'classes/users.php'; 
+include 'classes/users.php';
 include 'db.php';
 
   $pdo = Database::connection();
@@ -17,22 +17,22 @@ include 'db.php';
     <input type="password" name="password"><br>
     <input type="submit" name='submit' value="log in">
 </form>
- 
 
-<?php	
+
+<?php
 if(isset($_POST['submit'])){
 	$errMsg = '';
 	//username and password sent from Form
 	$username = trim($_POST['username']);
 	$password = trim($_POST['password']);
-	
+
 	if($username == '')
 		$errMsg .= 'You must enter your Username<br>';
-	
+
 	if($password == '')
 		$errMsg .= 'You must enter your Password<br>';
-	
-	
+
+
 	if($errMsg == ''){
 		$results = $db->getUser($username);
 		if(count($results) > 0 && $password == $results[0]['password']){
@@ -49,5 +49,3 @@ if(isset($_POST['submit'])){
 	}
 }
 ?>
-
- 

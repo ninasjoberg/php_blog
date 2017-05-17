@@ -1,4 +1,5 @@
 <?php
+
 	include_once dirname(__FILE__) . '/../db.php';
 	include_once dirname(__FILE__) . '/../error.php';
 	include_once dirname(__FILE__) . '/../classes/likes.php';
@@ -8,6 +9,7 @@
 
     $pdo = Database::connection();
     $db = new Likes($pdo);
+
 
 	$votsById = $db->getLikesByPid($pid); //tar ut alla likes som fev inns i databasen med detta pid och sparar i en variabel
 
@@ -23,5 +25,4 @@
 	echo $response;
 
 ?>
-
 

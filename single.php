@@ -5,20 +5,21 @@ include 'functions/showAllLikes.php';
 include_once dirname(__FILE__) . '/classes/posts.php'; 
 
 
-
 if(isset($_GET['post'])) {
   $id = $_GET['post'];
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $blogPost = $db->getById('posts', $id);
+
 }
 ?>
+
 
 <br>
 <?php foreach ($blogPost as $row) { ?>
     <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
-      <p class="blog-post-meta"><?php echo $row['date']; ?> by 
+      <p class="blog-post-meta"><?php echo $row['date']; ?> by
         <a href="#"><?php echo $row['author']; ?></a>
       </p>
       <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?></p>
@@ -53,7 +54,7 @@ if(isset($_GET['post'])) {
 
 <h1>Previous comments: </h1>
 <ul id="comment-list">
-  <?php foreach ($commentList as $row) { 
+  <?php foreach ($commentList as $row) {
     if ($row["postId"] == $id) {?>
       <li>
         <p> <?php echo $row["text"] ?> </p>
@@ -66,4 +67,3 @@ if(isset($_GET['post'])) {
 
 
 <script><?php include 'js/fetch.js'; ?></script>
-
