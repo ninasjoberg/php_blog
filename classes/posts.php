@@ -8,11 +8,13 @@ class Posts {
 		$this->pdo = $pdo;
 	}
 
+
 	public function getAllFrom($table){
 		$statement = $this->pdo->prepare("SELECT * FROM $table ORDER BY created DESC");
 		$statement->execute();
 		return $statement->fetchAll();
 	}
+
 
 	public function getCategories($table){
 		$statement = $this->pdo->prepare("SELECT * FROM $table");
@@ -20,20 +22,23 @@ class Posts {
 		return $statement->fetchAll();
 	}
 
+
 	public function getById($table, $id){
 		$statement = $this->pdo->prepare("SELECT * FROM $table WHERE id = $id");
 		$statement->execute();
 		return $statement->fetchAll();
 	}
 
+
 	public function deletePost($id){
 		$statment = $this->pdo->prepare( "DELETE FROM posts WHERE id = $id");
 		$statment->execute();
 	}
 
+
 	public function insertPost($title, $body, $author){
 		$statment = $this->pdo->prepare(
-			"INSERT INTO posts (´title´, ´body´, ´author´) 
+			"INSERT INTO posts (title, body, author) 
 			VALUES (:title, :body, :author)"
 		);
 		$statment->execute([
@@ -43,6 +48,7 @@ class Posts {
 		]);
 		return $this->pdo->lastInsertId(); 
 	}	
+
 
 	public function updatePost($title, $body, $id){
 		$statment = $this->pdo->prepare(

@@ -19,7 +19,6 @@ class Comments {
             ":name" => $name
         ]);
 	}
-
 }
 
 ?>    
