@@ -1,39 +1,33 @@
+
 <?php
-
-      include 'partial/header.php';
-
+  include 'partials/header.php';
   include 'error.php';
 
 
+  $pdo = Database::connection();
+  $db = new Posts($pdo);
+  $posts = $db->getAllFrom('posts');
 ?>
 
+<div class="blog-header">
+  <h1 class="blog-title">NMNBlog</h1>
+</div>
 
-<body>
+<?php foreach ($posts as $row) { ?>
+  <div class="blog-post">
+    <h2 class="blog-post-title">
+      <a href="single.php?post=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
+    </h2>
+    <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?> by
+      <a href="#"><?php echo $row['author']; ?></a>
+    </p>
 
-  <form  action="login.php" method="post">
-        <div class="form-group">
-             <h2 class="">Sign in</h2>
-        </div>
+    <?php $body = $row['body'];
+      echo substr($body , 0 , 400) . "...";
+    ?>
 
-      <br><br>
+    <a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read more</a>
 
-        <div class="form-group">
-              <label for="userName">UserName</label>
-              <input type="text" name="userName">
-           </div>
+  </div>
 
-        <br><br>
-
-          <div class="form-group">
-              <label for="password">Password</label>
-              <input type="text" name="password">
-          </div>
-
-            <br><br>
-
-           <div class="form-group">
-              <input type="submit" name="submit">
-          </div>
-          
-
-</form>
+<?php } ?>
