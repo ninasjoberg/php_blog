@@ -9,4 +9,6 @@
 
 
 
-
+<?php
+	include 'reg.php';
+?>

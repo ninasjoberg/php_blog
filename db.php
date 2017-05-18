@@ -2,10 +2,10 @@
 
 class Database{
 
-  public static function connection() {
+  public function connection() {
 
   return new PDO(
-    "mysql:host=localhost;dbname=nmnblog;charset=utf8",
+    "mysql:host=localhost;dbname=nmnBlog;charset=utf8",
     "root",
     "root", [ 
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
