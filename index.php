@@ -14,9 +14,6 @@
 </div>
 
 
-<a href="login.php?>" class="btn btn-secondary pull-right">Log in</a>
-
-
 <?php foreach ($posts as $row) { ?>
   <div class="blog-post">
     <h2 class="blog-post-title">
@@ -35,3 +32,6 @@
   </div>
 
 <?php } ?>
+<?php
+include 'partials/footer.php';
+?>

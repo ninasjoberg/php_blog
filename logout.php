@@ -1,9 +1,10 @@
 <?php
-	session_start();
-	session_destroy();
-	header("location:index.php");
-	exit;
-
-    echo 'God bye';
+session_start();
+session_unset();
+session_destroy();
+ob_start();
+header("location:index.php");
+ob_end_flush();
+include 'index.php';
+exit();
 ?>
-
