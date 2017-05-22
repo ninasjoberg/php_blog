@@ -1,51 +1,19 @@
-<?php
-session_start();
+<?Php
+include 'error.php';
 
-include 'classes/users.php';
-include 'db.php';
+require_once 'userLogin.php';
 
-  $pdo = Database::connection();
-  $db = new Users($pdo);
-?>
+if(isset($_POST['submit'])) 
+ {
 
-<h2>Login<h2>
-
-<form action="" method="post">
-    <label>Username  :</label>
-    <input type="text" name="username"><br>
-    <label>Password  :</label>
-    <input type="password" name="password"><br>
-    <input type="submit" name='submit' value="log in">
-</form>
+    $userName = ($_POST['userName']);
+    $password = ($_POST['password']);
 
 
-<?php
-if(isset($_POST['submit'])){
-	$errMsg = '';
-	//username and password sent from Form
-	$username = trim($_POST['username']);
-	$password = trim($_POST['password']);
+    $user= new User();
+    $user->login($userName,$password);
 
-	if($username == '')
-		$errMsg .= 'You must enter your Username<br>';
-
-	if($password == '')
-		$errMsg .= 'You must enter your Password<br>';
-
-
-	if($errMsg == ''){
-		$results = $db->getUser($username);
-		if(count($results) > 0 && $password == $results[0]['password']){
-			session_start();
-			echo $results[0]['username'];
-			$_SESSION['username'] = $results[0]['username'];
-			?>
-			<script> window.location = 'welcome.php' </script>
-			<?php
-			exit;
-		}else{
-			echo $errMsg .= 'Username and Password are not found<br>';
-		}
-	}
 }
+
 ?>
+
