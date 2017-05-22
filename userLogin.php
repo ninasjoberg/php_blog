@@ -1,7 +1,7 @@
 <?php
 include 'error.php';
-
 require_once 'db.php';
+session_start();
 
 
 class User
@@ -13,7 +13,7 @@ class User
     {
       //$this->pdo= new connection();
       //$this->pdo = $this->pdo->connection();
-      $this->pdo = (new Database())->connection();
+      $this->pdo = (new Database())::connection();
 
     }
  
@@ -31,7 +31,10 @@ class User
         $statement->execute();
 
       if($statement->rowCount() == 1){
-         echo "User verified and access granted";
+
+        echo "User verified and access granted";
+        $_SESSION['username'] = $userName;
+        echo "Welcome " .$_SESSION['username'];
         }
       else {
         echo " Incorrect Username and Password";

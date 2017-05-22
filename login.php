@@ -14,3 +14,6 @@ if(isset($_POST['submit']))
     $user->login($userName,$password);
 
 }
+
+?>
+

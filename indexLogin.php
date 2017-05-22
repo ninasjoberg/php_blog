@@ -1,13 +1,8 @@
 <?php
 
-      include 'partial/header.php';
-
-  include 'error.php';
-
-
-
+include 'partial/header.php';
+include 'error.php';
 ?>
-
 
 <body>
 
@@ -35,6 +30,4 @@
            <div class="form-group">
               <input type="submit" name="submit">
           </div>
-          
-
 </form>
