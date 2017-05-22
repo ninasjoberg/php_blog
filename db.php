@@ -1,7 +1,9 @@
 <?php
 
 class Database{
+
   public static function connection() {
+
   return new PDO(
     "mysql:host=localhost;dbname=nmnBlog;charset=utf8",
     "root",
@@ -11,5 +13,10 @@ class Database{
       PDO::ATTR_EMULATE_PREPARES   => false
     ]);
   }
-}
-?>
+} 
+
+
+   
+
+
+
