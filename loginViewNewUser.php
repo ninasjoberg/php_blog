@@ -6,6 +6,9 @@
 
 
 ?>
+<p  class="blog-title text-center">
+<?php echo 'Welcome to our blog!' ?>
+</p>
 
   <div class="wrapper">
   <form class="form-signin" action="login.php" method="post">
@@ -17,5 +20,4 @@
       </label>
       <input type="submit" name="submit" value="Log in" class="btn btn-lg btn-primary btn-block">
    </form>
-   
   </div>

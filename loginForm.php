@@ -3,7 +3,7 @@ include 'partials/header.php';
 ?>
 
 <div class="wrapper">
-<form class="form-signin" action="" method="post">
+<form class="form-signin" action="login.php" method="post">
   <h2 class="form-signin-heading">Login<h2>
     <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
     <input type="password" class="form-control" name="password" placeholder="Password" required=""/>

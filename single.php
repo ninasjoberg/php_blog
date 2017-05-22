@@ -2,7 +2,7 @@
 include ("partials/header.php");
 include 'functions/showAllComments.php';
 include 'functions/showAllLikes.php';
-include_once dirname(__FILE__) . '/classes/posts.php'; 
+include_once dirname(__FILE__) . '/classes/posts.php';
 
 
 if(isset($_GET['post'])) {
@@ -32,8 +32,8 @@ if(isset($_GET['post'])) {
     <?php } ?>
 
 <h4>Number of likes: <?php if($likes != array()){
-    echo $likes[0]['likes']; 
-    }else{echo 0; }?>  
+    echo $likes[0]['likes'];
+    }else{echo 0; }?>
 </h4>
 <br>
 
@@ -65,5 +65,8 @@ if(isset($_GET['post'])) {
   <?php } }?>
 </ul>
 
+<?php
+include 'partials/footer.php';
+?>
 
 <script><?php include 'js/fetch.js'; ?></script>

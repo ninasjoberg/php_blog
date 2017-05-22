@@ -1,7 +1,7 @@
 <?php
-  include 'error.php';
-  include 'db.php';
-  include_once dirname(__FILE__) . '/../classes/posts.php';
+include_once dirname(__FILE__) . '/../error.php';
+include_once dirname(__FILE__) . '/../db.php';
+include_once dirname(__FILE__) . '/../classes/posts.php';
 
   $pdo = Database::connection();
   $db = new Posts($pdo);
@@ -18,7 +18,7 @@
     <title>nmnBlog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <link href="css/blog.css" rel="stylesheet">
 
@@ -43,9 +43,9 @@
                 <?php } else echo "<a class='blog-nav-item' href='index.php?category=$row[id]'>$row[text]</a>";
               }?>
               <div>
-                <a href="loginForm.php?" class="btn btn-default pull-right">Log in</a>
+                <a href="loginView.php?" class="btn btn-default pull-right">Log in</a>
 
-                <a href="welcome.php?>" class="btn btn-default pull-right">Register</a>
+                <a href="signupView.php?>" class="btn btn-default pull-right">Register</a>
 
               </div>
             </nav>

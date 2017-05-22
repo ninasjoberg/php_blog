@@ -3,7 +3,7 @@ include 'error.php';
 
 require_once 'userLogin.php';
 
-if(isset($_POST['submit'])) 
+if(isset($_POST['submit']))
  {
 
     $userName = ($_POST['userName']);
@@ -17,3 +17,6 @@ if(isset($_POST['submit']))
 
 ?>
 
+<?php
+include 'views/createPostView.php'; 
+?>

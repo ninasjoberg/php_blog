@@ -29,7 +29,7 @@ if(commentForm){
             const newComment = renderComment(data);
             comList.insertBefore(newComment, comList.firstChild);
             commentForm.reset();
-        })   
+        })
     });
 }
 
@@ -149,7 +149,7 @@ function createDiv(className, children){
      const div = document.createElement('div');
      div.setAttribute("class", className);
      children.forEach(function(child) {
-        div.appendChild(child); 
+        div.appendChild(child);
      });
      return div;
 }
@@ -160,7 +160,7 @@ function createForm(action, method, className, children){
     form.setAttribute("method", method);
     form.setAttribute("class", className);
     children.forEach(function(child) {
-        form.appendChild(child); 
+        form.appendChild(child);
      });
      return form;
 }
@@ -188,6 +188,15 @@ function createHeading(text, h){
 }
 
 
-
-
-
+$("#btnLogout").click(function(){
+    $.ajax({
+    url: 'http://localhost/php_blog/logout.php',
+    type: 'GET',
+    success: function(data) {
+      console.log('hej');
+    },
+    error: function(err)  {
+      console.log("error");
+    }
+  });
+});
