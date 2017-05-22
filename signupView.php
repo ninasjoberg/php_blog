@@ -1,0 +1,59 @@
+<?php
+
+   // include 'partial/footer.php';
+    include 'partial/header.php';
+
+    include 'error.php';
+
+?>
+
+<body>
+	
+	<form  action="userData.php" method="post">
+        <div class="form-group">
+             <h2 class="">Sign up</h2>
+        </div>
+
+      <br><br>
+
+        	<div class="form-group">
+          		<label for="userName">UserName</label>
+          		<input type="text" name="userName">
+       		 </div>
+
+        <br><br>
+
+        	<div class="form-group">
+          		<label for="password">Password</label>
+          		<input type="text" name="password">
+        	</div>
+        
+
+      <br><br>
+
+        	<div class="form-group">
+          		<label for="firstName">First Name</label>
+          		<input type="text" name="firstName">
+        	</div>
+
+                    <br><br>
+
+
+        	<div class="form-group">
+          		<label for="lastName">Last Name</label>
+          		<input type="text" name="lastName">
+       		</div>
+
+                    <br><br>
+
+        	<div class="form-group">
+          		<label for="email">email</label>
+          		<input type="text" name="email">
+        	</div>
+                    <br><br>
+
+        <div class="form-group">
+          		<input type="submit" name="submit">
+       		</div>
+          
+      </form>
