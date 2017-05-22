@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 echo 'You are logged in as: ' . $_SESSION['username'];
     include_once dirname(__FILE__) . '/../functions/showAllPosts.php';
     include_once dirname(__FILE__) . '/../error.php';
@@ -42,7 +42,7 @@ echo 'You are logged in as: ' . $_SESSION['username'];
 
 
 
-<a id="btnLogout" href="../logout.php" class="btn btn-primary">Log out</a>
+<a id="btnLogout" href="logout.php" class="btn btn-primary">Log out</a>
 
 
 <h3>Create new blog post: </h3>

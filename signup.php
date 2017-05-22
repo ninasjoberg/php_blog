@@ -9,45 +9,37 @@ class UserDatabase
 {
 
           private $pdo;
- 
+
            public   function __construct()
           {
 
-             $this->pdo = (new Database())->connection();
+             $this->pdo = (new Database())::connection();
           }
 
       public function checkUser($userName, $password, $firstName, $lastName, $email)
       {
 
-            // $userName = $userName;
-            // // $password = ($_POST['password']);
-            // // $firstName =($_POST['firstName']); 
-            // // $lastName = ($_POST['lastName']); 
-            // // $email    = ($_POST['email']);
-
-            // echo "hello". $userName;
 
             if($userName)
               {
 
                 if(strlen($password) < 6)
                   {
-
-                    echo "Password must be atleast 6 characters!";  
-
+?>
+                    <script> alert( "Password must be atleast 6 characters!"); </script>
+<?php
                   }
 
-                    else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
+                    else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 
                   {
+?>
+                  <script> alert( "Please enter a valid email address!"); </script>
+<?php
+                  }
 
-                  echo "Please enter a valid email address!";
 
-                  } 
-
-
-
-                  if(isset($_POST['submit'])) 
+                  if(isset($_POST['submit']))
 
                 {
                     $statement =$this->pdo->prepare("SELECT  userName, email FROM users WHERE userName = :userName OR email= :email");
@@ -59,33 +51,30 @@ class UserDatabase
 
                     if($row['userName']==$userName)
 
-                    { 
+                    {
 
-                     echo  "Sorry username already taken!";
-
-                    } 
+                      ?>
+                     <script> alert( "Sorry username already taken!");</script>
+                     <?php
+                    }
 
                       else if($row['email']==$email)
 
                     {
+                      ?>
 
-                      echo "Sorry email id already taken!";
-
-                    } 
-
-
-                   
+                      <script> alert( "Sorry email id already taken!");</script>
+                      <<?php
+                    }
                 }
 
               }
 
+              $password =  md5($_POST['password']);
               $user= new User();
- 
-              $user->register($userName,$password,$firstName,$lastName,$email); 
+              $user->register($userName,$password,$firstName,$lastName,$email);
+
         }
-       
+
 }
-
-
-
-
+?>
