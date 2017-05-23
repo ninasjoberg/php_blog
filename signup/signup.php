@@ -1,6 +1,8 @@
 
 <?php
-include 'error.php';
+
+include_once dirname(__FILE__) . '/../error.php';
+//include 'error.php';
 require_once 'user.php';
 
 class UserDatabase
@@ -54,7 +56,7 @@ class UserDatabase
           $user= new User();
           $user->register($userName, $password, $firstName, $lastName, $email);
            ?>
-              <script>  window.location = 'loginViewNewUser.php' </script>
+              <script>  window.location = '../login/loginViewNewUser.php' </script>
             <?php
         }  
     }

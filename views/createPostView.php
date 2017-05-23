@@ -10,7 +10,7 @@ include_once dirname(__FILE__) . '/../partials/header.php';
 ?>
 
 
-<a id="btnLogout" href="../logout.php" class="btn btn-primary">Log out</a>
+<a id="btnLogout" href="../logout/logout.php" class="btn btn-primary">Log out</a>
 <a href="../index.php" class="btn btn-default">Back</a>
 
 

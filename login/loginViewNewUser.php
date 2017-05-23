@@ -1,6 +1,7 @@
 <?php
-include 'partials/header.php';
-include 'error.php';
+include '../partials/header.php';
+include_once dirname(__FILE__) . '/../error.php';
+//include 'error.php';
 
 
 ?>
