@@ -38,7 +38,7 @@
 <?php foreach ($posts as $row) { ?>
   <div class="blog-post">
     <h2 class="blog-post-title">
-      <a href="single.php?post=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
+      <a href="singleView.php?post=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
     </h2>
     <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?> by
       <a href="#"><?php echo $row['author']; ?></a>
@@ -48,7 +48,7 @@
       echo substr($body , 0 , 400) . "...";
     ?>
 
-    <a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read more</a>
+    <a href="singleView.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read more</a>
 
   </div>
 

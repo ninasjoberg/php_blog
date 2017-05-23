@@ -11,7 +11,7 @@ include_once dirname(__FILE__) . '/../partials/header.php';
 
 
 <a id="btnLogout" href="../logout/logout.php" class="btn btn-primary">Log out</a>
-<a href="../index.php" class="btn btn-default">Back</a>
+<a href="../index.php" class="btn btn-primary">Back</a>
 
 
 <main style="width:70%; margin:auto;">
@@ -23,7 +23,7 @@ include_once dirname(__FILE__) . '/../partials/header.php';
         <input type="text" name="title"><br>
         Content: <br>
         <textarea name="body" rows="20" cols="100"> </textarea><br>
-        <input type="submit" value="post">
+        <input class="btn btn-primary" type="submit" value="post">
     </form>
 
 

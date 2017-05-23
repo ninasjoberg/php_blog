@@ -23,8 +23,8 @@ if(isset($_GET['post'])) {
     <a class="blog-nav-item active" href="index.php">Home</a>
     <?php } ?>
         <div class="text-right">
-          <a href="loginView.php?" class="btn btn-default pull-right">Log in</a>
-          <a href="signupView.php?>" class="btn btn-default pull-right">Register</a>
+          <a href="login/loginView.php?" class="btn btn-default pull-right">Log in</a>
+          <a href="login/signupView.php?>" class="btn btn-default pull-right">Register</a>
         </div>
       </nav>
 
