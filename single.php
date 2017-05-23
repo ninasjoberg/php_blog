@@ -2,6 +2,7 @@
 include ("partials/header.php");
 include 'functions/showAllComments.php';
 include 'functions/showAllLikes.php';
+include 'functions/showAllDislikes.php';
 include_once dirname(__FILE__) . '/classes/posts.php';
 
 
@@ -29,7 +30,6 @@ if(isset($_GET['post'])) {
 
 <main>
 
-<br>
 <?php foreach ($blogPost as $row) { ?>
     <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
@@ -39,17 +39,31 @@ if(isset($_GET['post'])) {
       <p class="blog-post-meta"><?php echo substr($row['created'], 0, 10); ?></p>
       <?php echo $row['body'];?>
     </div>
+
     <form action="functions/addLike.php" method="POST" id="like-form">
         <input type="hidden" value="<?php echo $row["id"]?>" name="id">
-        <input type="submit" value="Like" name="like" class="btn btn-primary">
+        <input type="submit" value="Like" name="like" class="btn btn-success">
     </form>
-    <?php } ?>
 
-<h4>Number of likes: <?php if($likes != array()){
+<p class="likesdislikes">Number of likes: <?php if($likes != array()){
     echo $likes[0]['likes'];
     }else{echo 0; }?>
-</h4>
+</p>
+
 <br>
+
+<form action="functions/addDislike.php" method="POST" id="dislike-form">
+    <input type="hidden" value="<?php echo $row["id"]?>" name="id">
+    <input type="submit" value="Dislike" name="dislike" class="btn btn-danger">
+</form>
+
+<p class="likesdislikes">Number of dislikes: <?php if($dislikes != array()){
+    echo $dislikes[0]['dislikes'];
+    }else{echo 0; }?>
+</p>
+<br>
+
+<?php } ?>
 
 
 <h3>Comment</h3>

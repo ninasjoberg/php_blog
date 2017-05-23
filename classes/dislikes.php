@@ -1,6 +1,6 @@
 <?php
 
-	class Likes{
+	class Dislikes{
 
 		private $pdo;
 
@@ -9,23 +9,23 @@
 		}
 
 
-		public function insertLike($pid){
+		public function insertDislike($pid){
 			$statment = $this->pdo->prepare(
-				"INSERT INTO votes (pid, likes)
-				VALUES (:pid, :likes)"
+				"INSERT INTO votes (pid, dislikes)
+				VALUES (:pid, :dislikes)"
 			);
 
 			$statment->execute([
 				":pid" => $pid,
-				":likes" => 1
+				":dislikes" => 1
 			]);
 		}
 
 
-		public function uppdateLike($id){
+		public function uppdateDislike($id){
 			$statment = $this->pdo->prepare(
-				"UPDATE votes likes
-				SET likes = likes + 1
+				"UPDATE votes dislikes
+				SET dislikes = dislikes + 1
 				WHERE pid = :pid"
 			);
 
@@ -35,8 +35,8 @@
 		}
 
 
-		public function getLikesByPid($pid){
-			$statement = $this->pdo->prepare("SELECT likes FROM votes WHERE pid = $pid");
+		public function getDislikesByPid($pid){
+			$statement = $this->pdo->prepare("SELECT dislikes FROM votes WHERE pid = $pid");
 			$statement->execute();
 			return $statement->fetchAll();
 		}
