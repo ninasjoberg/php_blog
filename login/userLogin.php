@@ -1,6 +1,7 @@
 <?php
-include 'error.php';
-require_once 'db.php';
+include_once dirname(__FILE__) . '/../error.php';
+//include 'error.php';
+require_once '../db.php';
 session_start();
 
 
@@ -31,7 +32,7 @@ class User
             //echo "User verified and access granted";
             $_SESSION['username'] = $userName;
              ?>
-              <script>  window.location = 'views/createPostView.php' </script>
+              <script>  window.location = '../views/createPostView.php' </script>
             <?php
         }
         else {

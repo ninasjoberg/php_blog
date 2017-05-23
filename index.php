@@ -19,11 +19,11 @@
     <?php } ?>
 
         <div class="text-right">
-          <a href="loginView.php?" class="btn btn-default pull-right">Log in</a>
+          <a href="login/loginView.php?" class="btn btn-default pull-right">Log in</a>
 
-          <a href="signupView.php?>" class="btn btn-default pull-right">Register</a>
+          <a href="signup/signupView.php?>" class="btn btn-default pull-right">Register</a>
 
-          <a id="btnLogout" href="logout.php" class="btn btn-default">Log out</a>
+          <a id="btnLogout" href="logout/logout.php" class="btn btn-default">Log out</a>
 
         </div>
       </nav>

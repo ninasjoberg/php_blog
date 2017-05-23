@@ -1,5 +1,6 @@
 <?Php
-include 'error.php';
+include_once dirname(__FILE__) . '/../error.php';
+//include 'error.php';
 include 'userLogin.php';
 
 if(isset($_POST['submit']))

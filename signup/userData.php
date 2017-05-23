@@ -1,6 +1,6 @@
 <?php
-
-include 'error.php';
+include_once dirname(__FILE__) . '/../error.php';
+//include 'error.php';
 require_once 'signup.php';
 
     $userName = ($_POST['userName']);

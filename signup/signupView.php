@@ -1,14 +1,14 @@
 <?php
 
-   // include 'partial/footer.php';
-    include 'partials/header.php';
+    include '../partials/header.php';
 
-    include 'error.php';
+    //include 'error.php';
+    include_once dirname(__FILE__) . '/../error.php';
 
 ?>
 
 
-<div class="wrapper">
+<div class="wrapper" style="width:30%;margin:auto">
 <form class="form-signin" action="userData.php" method="post">
   <h2 class="form-signin-heading">Register a new user<h2>
     <input type="text" class="form-control" name="userName" placeholder="Username" required="" autofocus="" /> <br>
