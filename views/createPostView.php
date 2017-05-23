@@ -1,12 +1,12 @@
 <?php
-// session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 echo 'You are logged in as: ' . $_SESSION['username'];
-    include_once dirname(__FILE__) . '/../functions/showAllPosts.php';
-    include_once dirname(__FILE__) . '/../error.php';
-    // include_once dirname(__FILE__) . '/../partials/header.php';
-
-
-
+    
+include_once dirname(__FILE__) . '/../functions/showAllPosts.php';
+include_once dirname(__FILE__) . '/../error.php';
+    //include_once dirname(__FILE__) . '/../partials/header.php';
 ?>
 
 
@@ -42,9 +42,9 @@ echo 'You are logged in as: ' . $_SESSION['username'];
 
 
 
-<a id="btnLogout" href="logout.php" class="btn btn-primary">Log out</a>
+<a id="btnLogout" href="../logout.php" class="btn btn-primary">Log out</a>
 
-
+<br>
 <h3>Create new blog post: </h3>
 <form action="../functions/addPost.php" method="POST" id="post-form">
  	  Title:  <br>

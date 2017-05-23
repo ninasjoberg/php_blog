@@ -9,41 +9,42 @@ class User
   
     private $pdo;
  
-   public  function __construct()
+    public  function __construct()
     {
-      //$this->pdo= new connection();
-      //$this->pdo = $this->pdo->connection();
       $this->pdo = (new Database())::connection();
-
     }
  
     public function login($userName, $password)
-  {
+    {  
 
       if(!empty($userName) && !empty($password))
-    {
+      {
+          $statement = $this->pdo->prepare("SELECT * FROM users where userName=:userName and password=:password");
 
-    $statement = $this->pdo->prepare("SELECT * FROM users where userName=:userName and password=:password");
+          $hashpassword = md5($password);
+          $statement->bindparam(":userName",$userName);
+          $statement->bindparam(":password", $hashpassword); 
 
-        $statement->bindparam(":userName",$userName);
-        $statement->bindparam(":password",$password);
+          $statement->execute();
 
-        $statement->execute();
-
-      if($statement->rowCount() == 1){
-
-        echo "User verified and access granted";
-        $_SESSION['username'] = $userName;
-        echo "Welcome " .$_SESSION['username'];
+        if($statement->rowCount() == 1){
+            //echo "User verified and access granted";
+            $_SESSION['username'] = $userName;
+             ?>
+              <script>  window.location = 'views/createPostView.php' </script>
+            <?php
         }
-      else {
-        echo " Incorrect Username and Password";
+        else {
+            ?>
+            <script> alert("Incorrect Username and Password"); </script>
+            <?php
         }
     }
-      else{
-
-        echo "Please enter Username and Password";
-      }
+    else{
+        ?>
+        <script> alert("Please enter Username and Password"); </script>
+        <?php
+    }
   }
 }
 
