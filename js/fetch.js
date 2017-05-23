@@ -33,9 +33,14 @@ if(commentForm){
     });
 }
 
-let deletePostForm = document.getElementsByClassName('deletePost');
-for(let del of deletePostForm){
-    del.addEventListener('submit', function (event) {
+
+let deletePostForms = document.getElementsByClassName('deletePost');
+for(let deleteForm of deletePostForms){
+    deletePost(deleteForm);
+}
+
+function deletePost(deleteForm){
+    deleteForm.addEventListener('submit', function (event) {
         event.preventDefault(); //Prevent form from submitting
         request('../functions/delete.php', { //Do post request to php
             method: 'POST',
@@ -48,7 +53,8 @@ for(let del of deletePostForm){
             parent.removeChild(deletePostItem);
         })
     });
-}
+}    
+
 
 let postForm = document.getElementById('post-form');
 if(postForm){
@@ -91,6 +97,7 @@ if(back){
     }
 }
 
+
 let likeForm = document.getElementById('like-form');
 if(likeForm){
     likeForm.addEventListener('submit', function (event) {
@@ -104,6 +111,8 @@ if(likeForm){
         })
     });
 }
+
+
 let dislikeForm = document.getElementById('dislike-form');
 if(dislikeForm){
     dislikeForm.addEventListener('submit', function (event) {
@@ -148,6 +157,7 @@ function renderPost(postData){
     const deleteInputOne = createInput('hidden', postData.id, 'id');
     const deleteInputTwo = createInput('submit', 'delete');
     const deleteForm = createForm('../functions/delete.php', 'POST', 'deletePost', [deleteInputOne, deleteInputTwo]);
+    deletePost(deleteForm);
     li.appendChild(deleteForm);
 
     const editInputOne = createInput('hidden', postData.id, 'id');
@@ -200,16 +210,3 @@ function createHeading(text, h){
     return hTag;
 }
 
-
-$("#btnLogout").click(function(){
-    $.ajax({
-    url: 'http://localhost/php_blog/logout.php',
-    type: 'GET',
-    success: function(data) {
-      console.log('hej');
-    },
-    error: function(err)  {
-      console.log("error");
-    }
-  });
-});
