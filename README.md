@@ -47,5 +47,6 @@ Nina:
 - allow admin to delete comments (if they are inappropriate)
 - allow not logged in visitors to like a blog post
 - add categories and search for category 
+- make styling for logged in view and edit post view
 
 

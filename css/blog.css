@@ -8,6 +8,12 @@ body {
   background-color: #ffffff;
 }
 
+main{
+  width: 70%;
+  margin: auto;
+}
+
+
 a,  .a,
 h1, .h1,
 h2, .h2,

@@ -10,10 +10,24 @@ if(isset($_GET['post'])) {
   $pdo = Database::connection();
   $db = new Posts($pdo);
   $blogPost = $db->getById('posts', $id);
-
 }
 ?>
 
+
+ <nav class="blog-nav">
+  <?php
+    if(isset($_GET['category'])) { ?>
+      <a class="blog-nav-item" href="index.php">Home</a>
+  <?php  } else { ?>
+    <a class="blog-nav-item active" href="index.php">Home</a>
+    <?php } ?>
+        <div class="text-right">
+          <a href="loginView.php?" class="btn btn-default pull-right">Log in</a>
+          <a href="signupView.php?>" class="btn btn-default pull-right">Register</a>
+        </div>
+      </nav>
+
+<main>
 
 <br>
 <?php foreach ($blogPost as $row) { ?>
@@ -45,9 +59,9 @@ if(isset($_GET['post'])) {
 	<label>Comment</label>
   <textarea name="comment" rows="20" cols="60" class="form-control"></textarea><br>
 	<input type="hidden" value="<?php echo $row['id']?>" name="commentedPostId">
-	<input type="submit" value="post" name='submit' class="btn btn-primary">
+	<input type="submit" value="post" name='submit' class="btn btn-default">
 </form>
-<a href="index.php" class="btn btn-primary">Back</a>
+<a href="index.php" class="btn btn-default">Back</a>
 
 <?php $id = $row['id']; ?>
 
@@ -64,7 +78,7 @@ if(isset($_GET['post'])) {
       <hr>
   <?php } }?>
 </ul>
-
+</main>
 <?php
 include 'partials/footer.php';
 ?>

@@ -9,6 +9,27 @@
   $posts = $db->getAllFrom('posts');
 ?>
 
+
+ <nav class="blog-nav">
+  <?php
+    if(isset($_GET['category'])) { ?>
+      <a class="blog-nav-item" href="index.php">Home</a>
+  <?php  } else { ?>
+    <a class="blog-nav-item active" href="index.php">Home</a>
+    <?php } ?>
+
+        <div class="text-right">
+          <a href="loginView.php?" class="btn btn-default pull-right">Log in</a>
+
+          <a href="signupView.php?>" class="btn btn-default pull-right">Register</a>
+
+          <a id="btnLogout" href="logout.php" class="btn btn-default">Log out</a>
+
+        </div>
+      </nav>
+
+<main>
+ <div class="text-left">
 <div class="blog-header">
   <h1 class="blog-title">NMNBlog</h1>
 </div>
@@ -35,3 +56,5 @@
 <?php
 include 'partials/footer.php';
 ?>
+
+</main>
