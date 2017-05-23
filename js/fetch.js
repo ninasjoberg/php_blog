@@ -104,6 +104,19 @@ if(likeForm){
         })
     });
 }
+let dislikeForm = document.getElementById('dislike-form');
+if(dislikeForm){
+    dislikeForm.addEventListener('submit', function (event) {
+        event.preventDefault(); //Prevent form from submitting
+        request('functions/addDislike.php', { //Do post request to php
+            method: 'POST',
+            body: new FormData(this), //format input-fields
+            credentials: 'include', //to access session from php (send session cookie with fetch)
+        },() =>  { //callback
+            location.reload();
+        })
+    });
+}
 
 
 function renderComment(commentData) {
