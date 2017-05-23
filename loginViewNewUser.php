@@ -1,14 +1,13 @@
 <?php
-
-      include 'partials/header.php';
-
-  include 'error.php';
+include 'partials/header.php';
+include 'error.php';
 
 
 ?>
-<p  class="blog-title text-center">
-<?php echo 'Welcome to our blog!' ?>
+<p  class="blog-post-title text-center"> <br>
+<?php echo 'Welcome to our blog!' . '<br>' . 'Please login to create a blog post';?> 
 </p>
+ 
 
   <div class="wrapper">
   <form class="form-signin" action="login.php" method="post">
