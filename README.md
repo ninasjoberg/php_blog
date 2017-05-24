@@ -35,7 +35,6 @@ Maruf:
 Nicolas:
 - firstpage view
 - single blog-post view
-- likes
 - implement Bootsrap 
 
 Nina:
@@ -43,6 +42,7 @@ Nina:
 - create, edit and delete blogpost
 - add comment
 - ajax fetch request and DOM manipulation, JavaScript
+- likes 
 
 
 ## Suggestions for future functionality / improvements:
@@ -51,5 +51,6 @@ Nina:
 - allow not logged in visitors to like a blog post
 - add categories and search for category 
 - make styling for logged in view and edit post view
+- make sure you can only like once
 
 
