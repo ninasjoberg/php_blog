@@ -24,7 +24,7 @@ if(isset($_GET['post'])) {
     <?php } ?>
         <div class="text-right">
           <a href="login/loginView.php?" class="btn btn-default pull-right">Log in</a>
-          <a href="login/signupView.php?>" class="btn btn-default pull-right">Register</a>
+          <a href="signup/signupView.php?>" class="btn btn-default pull-right">Register</a>
         </div>
       </nav>
 
