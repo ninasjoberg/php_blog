@@ -1,9 +1,8 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
-ob_start();
-header("location:../index.php");
-ob_end_flush();
-exit();
-?>
+if (isset($_SESSION['username'])) {
+   session_destroy();
+   echo "<br> you are logged out successufuly!";
+}
+   echo "<br/><a href='../login/loginView.php'>login</a>";
+ ?>
