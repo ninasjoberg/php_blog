@@ -35,7 +35,7 @@ Maruf:
 Nicolas:
 - firstpage view
 - single blog-post view
-- implement Bootsrap 
+- implement Bootstrap 
 
 Nina:
 - view for logged in users
@@ -48,7 +48,6 @@ Nina:
 ## Suggestions for future functionality / improvements:
 - allow the users to include images and other media to their blogposts
 - allow admin to delete comments (if they are inappropriate)
-- allow not logged in visitors to like a blog post
 - add categories and search for category 
 - make styling for logged in view and edit post view
 - make sure you can only like once
